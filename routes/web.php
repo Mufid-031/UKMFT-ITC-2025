@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\PositionController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;
@@ -18,8 +19,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('dashboard');
     Route::resource('divisions', DivisionController::class)
         ->name('divisions', 'divisions');
-    Route::resource('position', PositionController::class)
+    Route::resource('positions', PositionController::class)
         ->name('positions', 'positions');
+    Route::resource('users', UserController::class)
+        ->name('users', 'users');
 });
 
 Route::get('/activity', function () {

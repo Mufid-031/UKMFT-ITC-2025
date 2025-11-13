@@ -55,6 +55,7 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Division::class, 'division_users')
             ->withPivot('position_id')
+            ->limit(1)
             ->withTimestamps();
     }
 
@@ -62,6 +63,7 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Position::class, 'division_users')
             ->withPivot('division_id')
+            ->limit(1)
             ->withTimestamps();
     }
 }

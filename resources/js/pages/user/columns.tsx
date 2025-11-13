@@ -2,11 +2,11 @@ import { DataTableColumnHeader } from '@/components/data-table-header';
 import { DeleteModal } from '@/components/delete-modal';
 import { EditButton } from '@/components/edit-button';
 import { Checkbox } from '@/components/ui/checkbox';
-import positionRoutes from '@/routes/positions';
-import { Position } from '@/types';
+import usersRoutes from '@/routes/users';
+import { User } from '@/types';
 import { ColumnDef } from '@tanstack/react-table';
 
-export const columns: ColumnDef<Position, string>[] = [
+export const columns: ColumnDef<User, string>[] = [
     {
         id: 'select',
         header: ({ table }) => (
@@ -34,7 +34,7 @@ export const columns: ColumnDef<Position, string>[] = [
     {
         accessorKey: 'name',
         header: ({ column }) => (
-            <DataTableColumnHeader<Position, unknown>
+            <DataTableColumnHeader<User, unknown>
                 column={column}
                 title="Name"
             />
@@ -44,31 +44,45 @@ export const columns: ColumnDef<Position, string>[] = [
         ),
     },
     {
-        accessorKey: 'users_count',
+        accessorKey: 'division',
         header: ({ column }) => (
-            <DataTableColumnHeader<Position, unknown>
+            <DataTableColumnHeader<User, unknown>
                 column={column}
-                title="Users Count"
+                title="Division"
             />
         ),
-        cell: ({ row }) => (
-            <div className="lowercase">{row.getValue('users_count')}</div>
+        cell: ({ row }) => {
+            const user = row.original;
+
+            return <div className="lowercase">{user.division![0].name}</div>;
+        },
+    },
+    {
+        accessorKey: 'position',
+        header: ({ column }) => (
+            <DataTableColumnHeader<User, unknown>
+                column={column}
+                title="Position"
+            />
         ),
+        cell: ({ row }) => {
+            const user = row.original;
+
+            return <div className="lowercase">{user.position![0].name}</div>;
+        },
     },
     {
         id: 'actions',
         header: 'Actions',
         cell: ({ row }) => {
-            const position = row.original;
+            const user = row.original;
 
             return (
                 <div className="flex gap-5">
-                    <EditButton
-                        editHref={positionRoutes.edit(position.id).url}
-                    />
+                    <EditButton editHref={usersRoutes.edit(user.id).url} />
                     <DeleteModal
-                        resourceName="position"
-                        deleteHref={positionRoutes.destroy(position.id).url}
+                        resourceName="user"
+                        deleteHref={usersRoutes.destroy(user.id).url}
                     />
                 </div>
             );

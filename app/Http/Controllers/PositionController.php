@@ -47,7 +47,7 @@ class PositionController extends Controller
             Log::error($th);
 
             return redirect()
-                ->route('positions.index')
+                ->back()
                 ->with('error', 'Something went wrong');
         }
     }
