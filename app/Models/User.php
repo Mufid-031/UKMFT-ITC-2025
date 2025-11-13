@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
@@ -48,5 +49,19 @@ class User extends Authenticatable
             'password' => 'hashed',
             'two_factor_confirmed_at' => 'datetime',
         ];
+    }
+
+    public function division(): BelongsToMany
+    {
+        return $this->belongsToMany(Division::class, 'division_users')
+            ->withPivot('position_id')
+            ->withTimestamps();
+    }
+
+    public function position(): BelongsToMany
+    {
+        return $this->belongsToMany(Position::class, 'division_users')
+            ->withPivot('division_id')
+            ->withTimestamps();
     }
 }

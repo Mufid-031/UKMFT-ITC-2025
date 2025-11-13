@@ -6,6 +6,11 @@ const menuItems = [
     { label: 'Activity', ariaLabel: 'View our activity', link: '/activity' },
     { label: 'Structure', ariaLabel: 'View our structure', link: '/structure' },
     { label: 'Profile', ariaLabel: 'View our profile', link: '/profile' },
+    {
+        label: 'Developers',
+        ariaLabel: 'View our developer',
+        link: '/developer',
+    },
 ];
 
 const socialItems = [

@@ -2,7 +2,6 @@
 import { AppLayout } from '@/components/app-layout';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
 import { type SharedData } from '@/types';
 import { usePage } from '@inertiajs/react';
 import { ContactRound } from 'lucide-react';
@@ -16,119 +15,126 @@ export default function Welcome({
 
     return (
         <AppLayout>
-            <div className="grid grid-cols-1 gap-5 p-10 pt-20 lg:grid-cols-2">
-                <div className="min-h-screen w-full p-10 pt-20 uppercase">
-                    <h1 className="text-4xl font-extrabold text-foreground lg:text-5xl xl:text-7xl">
+            {/* Hero Section */}
+            <div className="grid grid-cols-1 gap-10 px-6 pt-24 lg:grid-cols-2 lg:px-10">
+                <div className="flex flex-col justify-center uppercase">
+                    <h1 className="text-3xl font-extrabold text-foreground sm:text-4xl md:text-5xl xl:text-7xl">
                         UKM<span className="text-cyan-300">FT</span>
                     </h1>
-                    <h1 className="text-4xl font-bold text-foreground lg:text-5xl xl:text-7xl">
+                    <h1 className="text-3xl font-bold text-foreground sm:text-4xl md:text-5xl xl:text-7xl">
                         <span className="text-cyan-300">I</span>nformation
                     </h1>
-                    <h1 className="ml-20 text-4xl font-bold text-foreground lg:text-5xl xl:text-7xl">
+                    <h1 className="text-3xl font-bold text-foreground sm:text-4xl md:ml-10 md:text-5xl xl:text-7xl">
                         <span className="text-cyan-300">T</span>echnology
                     </h1>
-                    <h1 className="ml-40 text-4xl font-bold text-foreground lg:text-5xl xl:text-7xl">
+                    <h1 className="text-3xl font-bold text-foreground sm:text-4xl md:ml-20 md:text-5xl xl:text-7xl">
                         <span className="text-cyan-300">C</span>enter
                     </h1>
-                    <div className="mt-10 flex gap-4">
-                        <Button className="cursor-pointer rounded-full bg-cyan-300 px-5 py-6 text-lg font-semibold text-accent-foreground transition-all duration-200 hover:scale-110 hover:bg-cyan-400">
+
+                    <div className="mt-8 flex flex-wrap gap-4">
+                        <Button className="rounded-full bg-cyan-300 px-6 py-4 text-base font-semibold text-accent-foreground transition-all duration-200 hover:scale-105 hover:bg-cyan-400">
                             Kenali Kami
                         </Button>
-                        <Button className="cursor-pointer rounded-full px-5 py-6 text-lg font-semibold transition-all duration-200 hover:scale-110 hover:bg-accent hover:text-foreground">
+                        <Button className="rounded-full px-6 py-4 text-base font-semibold transition-all duration-200 hover:scale-105 hover:bg-accent hover:text-foreground">
                             Gabung Sekarang
                         </Button>
                     </div>
                 </div>
-                <div className="min-h-screen w-full bg-accent"></div>
+
+                <div className="h-72 w-full rounded-2xl bg-accent lg:h-auto"></div>
             </div>
 
-            <div className="mt-5 min-h-screen w-full">
-                <h1 className="text-center text-[12rem] font-extrabold text-accent uppercase">
-                    Bidang minat
+            {/* Bidang Minat */}
+            <section className="mt-16 w-full px-6">
+                <h1 className="text-center text-5xl font-extrabold text-accent uppercase sm:text-6xl md:text-7xl lg:text-8xl">
+                    Bidang Minat
                 </h1>
 
-                <div className="grid grid-cols-1 gap-20 px-10 md:grid-cols-2">
+                <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:gap-20">
                     {[1, 2].map((_, index) => (
-                        <Card key={index} className="h-60 bg-accent"></Card>
+                        <Card
+                            key={index}
+                            className="h-48 bg-accent sm:h-60"
+                        ></Card>
                     ))}
                 </div>
-            </div>
+            </section>
 
-            <div className="my-5 min-h-screen w-full">
-                <h1 className="text-center text-[11rem] font-extrabold text-accent uppercase">
+            {/* Portfolio */}
+            <section className="my-16 w-full px-6">
+                <h1 className="text-center text-5xl font-extrabold text-accent uppercase sm:text-6xl md:text-7xl lg:text-8xl">
                     Our Portfolio
                 </h1>
 
-                <div className="grid grid-cols-1 gap-20 px-10 md:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-20">
                     {[1, 2, 3, 4, 5, 6].map((_, index) => (
-                        <Card key={index} className="h-60 bg-accent"></Card>
+                        <Card
+                            key={index}
+                            className="h-48 bg-accent sm:h-60"
+                        ></Card>
                     ))}
                 </div>
 
                 <div className="mt-10 flex justify-center">
-                    <Button className="cursor-pointer rounded-full px-5 py-6 text-lg font-semibold transition-all duration-200 hover:scale-110 hover:bg-accent hover:text-foreground">
+                    <Button className="rounded-full px-6 py-4 text-base font-semibold transition-all duration-200 hover:scale-105 hover:bg-accent hover:text-foreground">
                         Lihat Lebih Banyak
                     </Button>
                 </div>
-            </div>
+            </section>
 
-            <div className="mt-5 flex h-40 w-full items-center justify-evenly gap-5 bg-primary-foreground py-10">
-                <div className="space-y-2 text-center">
-                    <p>340+</p>
-                    <h1 className="">Our Member</h1>
-                </div>
-                <Separator orientation="vertical" className="bg-foreground" />
-                <div className="space-y-2 text-center">
-                    <p>450+</p>
-                    <h1 className="">Our Alumni</h1>
-                </div>
-                <Separator orientation="vertical" className="bg-foreground" />
-                <div className="space-y-2 text-center">
-                    <p>50+</p>
-                    <h1 className="">Our Project</h1>
-                </div>
-            </div>
+            {/* Statistik */}
+            <section className="flex flex-wrap items-center justify-center gap-8 bg-primary-foreground px-6 py-10 text-center">
+                {[
+                    { label: 'Our Member', value: '340+' },
+                    { label: 'Our Alumni', value: '450+' },
+                    { label: 'Our Project', value: '50+' },
+                ].map((item, i) => (
+                    <div key={i} className="space-y-2">
+                        <p className="text-2xl font-bold">{item.value}</p>
+                        <h1 className="text-base font-medium">{item.label}</h1>
+                    </div>
+                ))}
+            </section>
 
-            <div className="my-5 min-h-screen w-full">
-                <h1 className="text-center text-[11rem] font-extrabold text-accent uppercase">
+            {/* Our Stories */}
+            <section className="my-16 w-full px-6">
+                <h1 className="text-center text-5xl font-extrabold text-accent uppercase sm:text-6xl md:text-7xl lg:text-8xl">
                     Our Stories
                 </h1>
 
-                <div className="grid grid-cols-1 gap-5 p-10 lg:grid-cols-2">
-                    <Card className="w-full bg-accent"></Card>
-                    <div className="grid min-h-screen w-full grid-cols-2 gap-5">
+                <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-2">
+                    <Card className="h-64 w-full bg-accent"></Card>
+                    <div className="grid grid-cols-2 gap-4">
                         {[1, 2, 3, 4, 5, 6].map((_, index) => (
-                            <Card
-                                key={index}
-                                className="w-full bg-accent"
-                            ></Card>
+                            <Card key={index} className="h-32 bg-accent"></Card>
                         ))}
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div className="my-5 min-h-screen w-full">
-                <h1 className="text-center text-[11rem] font-extrabold text-accent uppercase">
+            {/* Our Section */}
+            <section className="my-16 w-full px-6">
+                <h1 className="text-center text-5xl font-extrabold text-accent uppercase sm:text-6xl md:text-7xl lg:text-8xl">
                     Our
                 </h1>
 
-                <div className="grid grid-cols-1 gap-20 px-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((_, index) => (
+                <div className="mt-10 grid grid-cols-2 justify-items-center gap-6 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+                    {[...Array(9)].map((_, index) => (
                         <Card
                             key={index}
-                            className="flex h-80 w-80 items-center justify-center bg-accent"
+                            className="flex h-40 w-40 items-center justify-center bg-accent sm:h-60 sm:w-60"
                         >
-                            <ContactRound className="h-40 w-40 text-primary-foreground" />
+                            <ContactRound className="h-20 w-20 text-primary-foreground sm:h-32 sm:w-32" />
                         </Card>
                     ))}
                 </div>
 
                 <div className="mt-10 flex justify-center">
-                    <Button className="cursor-pointer rounded-full px-5 py-6 text-lg font-semibold transition-all duration-200 hover:scale-110 hover:bg-accent hover:text-foreground">
+                    <Button className="rounded-full px-6 py-4 text-base font-semibold transition-all duration-200 hover:scale-105 hover:bg-accent hover:text-foreground">
                         Selengkapnya
                     </Button>
                 </div>
-            </div>
+            </section>
         </AppLayout>
     );
 }

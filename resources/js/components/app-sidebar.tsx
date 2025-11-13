@@ -11,6 +11,8 @@ import {
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import { dashboard } from '@/routes';
+import division from '@/routes/divisions';
+import position from '@/routes/position';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
 import { BookOpen, Folder, LayoutGrid } from 'lucide-react';
@@ -20,6 +22,16 @@ const mainNavItems: NavItem[] = [
     {
         title: 'Dashboard',
         href: dashboard(),
+        icon: LayoutGrid,
+    },
+    {
+        title: 'Division',
+        href: division.index().url,
+        icon: LayoutGrid,
+    },
+    {
+        title: 'Position',
+        href: position.index().url,
         icon: LayoutGrid,
     },
 ];

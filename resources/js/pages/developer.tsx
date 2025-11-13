@@ -10,16 +10,20 @@ import { Contact2Icon } from 'lucide-react';
 export default function Developer() {
     return (
         <AppLayout>
-            <div className="relative pt-24">
+            {/* === Hero Section === */}
+            <div className="relative pt-24 pb-32">
                 {[1, 2, 3].map((_, index) => (
                     <ScrollVelocity
                         key={index}
                         texts={['PROJECT LEAD', 'FULL STACK DEVELOPER']}
                         velocity={50}
-                        className={`text-8xl font-bold ${index === 1 ? '' : 'text-stroke-white'}`}
+                        className={`text-4xl font-bold tracking-tight sm:text-5xl md:text-7xl lg:text-8xl ${
+                            index === 1 ? '' : 'text-stroke-white'
+                        }`}
                     />
                 ))}
 
+                {/* Custom text stroke style */}
                 <style>
                     {`
                         .text-stroke-white {
@@ -29,16 +33,18 @@ export default function Developer() {
                     `}
                 </style>
 
-                <div className="absolute top-1/2 left-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-2xl bg-accent text-center grayscale-100">
+                {/* Center Image */}
+                <div className="absolute top-1/2 left-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-2xl bg-accent shadow-lg sm:h-64 sm:w-64 md:h-80 md:w-80">
                     <img
                         src="/mufid-2.jpg"
                         alt="Mufid"
-                        className="object-fi h-full w-full"
+                        className="h-full w-full object-cover object-top grayscale"
                     />
                 </div>
             </div>
 
-            <div className="mt-40 grid grid-cols-1 items-center px-5 lg:grid-cols-2">
+            {/* === About Projects Section === */}
+            <div className="mt-20 grid grid-cols-1 items-center gap-4 px-5 lg:grid-cols-2">
                 <Shuffle
                     text="About Projects"
                     shuffleDirection="right"
@@ -56,27 +62,31 @@ export default function Developer() {
                 <Separator className="hidden rounded-2xl py-1 lg:block" />
             </div>
 
-            <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
-                <div className="space-x-2">
+            <div className="mt-8 grid grid-cols-1 gap-6 px-5 lg:grid-cols-2">
+                <div className="text-sm leading-relaxed sm:text-base">
                     <ScrambledText
                         radius={100}
                         duration={1.2}
                         speed={0.5}
                         scrambleChars=".:"
+                        className='text-2xl'
                     >
-                        Lorem ipsum, dolor sit amet consectetur adipisicing
-                        elit. Voluptatum fugit aspernatur adipisci non nulla
-                        nemo maxime voluptatibus dolores maiores, enim
-                        temporibus sint! Alias quod ea nobis officia expedita
-                        delectus quam!
+                        Website ini saya buat untuk UKMFT-ITC, komunitas IT di
+                        Fakultas Teknik yang berfokus pada pengembangan
+                        teknologi dan kolaborasi antaranggota. Tujuannya
+                        sederhana — menciptakan ruang digital yang modern,
+                        informatif, dan interaktif untuk menampung semangat
+                        inovasi dari para anggota ITC.
                     </ScrambledText>
                 </div>
-                <div className="flex items-center justify-center space-x-2">
+
+                <div className="flex items-center justify-center">
                     <TechStack />
                 </div>
             </div>
 
-            <div className="mt-10 grid grid-cols-1 items-center px-5 lg:grid-cols-2">
+            {/* === Our Developers Section === */}
+            <div className="mt-20 grid grid-cols-1 items-center gap-4 px-5 lg:grid-cols-2">
                 <Separator className="hidden rounded-2xl py-1 lg:block" />
 
                 <Shuffle
@@ -94,13 +104,14 @@ export default function Developer() {
                 />
             </div>
 
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 p-10">
+            {/* === Developer Cards === */}
+            <div className="grid grid-cols-1 gap-5 p-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {[1, 2, 3, 4].map((_, index) => (
                     <Card
                         key={index}
-                        className="flex items-center justify-center bg-primary-foreground h-96"
+                        className="flex h-60 items-center justify-center bg-primary-foreground transition-transform duration-300 hover:scale-105 sm:h-72"
                     >
-                        <Contact2Icon className='w-20 h-20' />
+                        <Contact2Icon className="h-16 w-16 text-primary sm:h-20 sm:w-20" />
                     </Card>
                 ))}
             </div>

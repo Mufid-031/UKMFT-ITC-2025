@@ -83,7 +83,7 @@ export const Footer = () => {
             </footer>
 
             <div className="border-t border-muted-foreground/20 bg-primary-foreground py-5 text-center text-sm text-muted-foreground">
-                © {new Date().getFullYear()} <b>WebDev</b> - UKM-FT ITC
+                © {new Date().getFullYear()} <b>Mufid</b> - UKM-FT ITC
             </div>
         </React.Fragment>
     );

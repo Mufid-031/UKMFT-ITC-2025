@@ -41,3 +41,28 @@ export interface User {
     updated_at: string;
     [key: string]: unknown; // This allows for additional properties...
 }
+
+export interface Division {
+    id: number;
+    name: string;
+    description?: string;
+    created_at: string;
+    updated_at: string;
+}
+
+export interface Position {
+    id: number;
+    name: string;
+    description?: string;
+    created_at: string;
+    updated_at: string;
+}
+
+export interface DivisionUser {
+    id: number;
+    user: User;
+    division: Division;
+    position: Position;
+    created_at: string;
+    updated_at: string;
+}

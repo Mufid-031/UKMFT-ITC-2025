@@ -6,9 +6,6 @@ import { AnimatedBeam } from '@/components/animated-beam';
 import { cn } from '@/lib/utils';
 
 import { CiGlobe } from 'react-icons/ci';
-import { FaFigma, FaLaravel, FaNodeJs, FaReact } from 'react-icons/fa';
-import { RiTailwindCssFill } from 'react-icons/ri';
-import { SiMongodb } from 'react-icons/si';
 
 const Circle = forwardRef<
     HTMLDivElement,
@@ -18,7 +15,7 @@ const Circle = forwardRef<
         <div
             ref={ref}
             className={cn(
-                'z-10 flex size-12 items-center justify-center rounded-full border-2 bg-white p-3 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]',
+                'z-10 flex size-16 items-center justify-center rounded-full border-2 bg-white p-3 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]',
                 className,
             )}
         >
@@ -41,7 +38,7 @@ export function TechStack() {
 
     return (
         <div
-            className="relative flex h-[300px] w-full items-center justify-center overflow-hidden p-10"
+            className="relative flex h-[400px] w-full items-center justify-center overflow-hidden p-10"
             ref={containerRef}
         >
             <div className="flex size-full max-h-[200px] max-w-lg flex-col items-stretch justify-between gap-10">
@@ -120,11 +117,11 @@ export function TechStack() {
 }
 
 const Icons = {
-    react: () => <FaReact className="text-xl text-accent" />,
-    figma: () => <FaFigma className="text-xl text-accent" />,
-    laravel: () => <FaLaravel className="text-xl text-accent" />,
-    tailwind: () => <RiTailwindCssFill className="text-xl text-accent" />,
-    mongodb: () => <SiMongodb className="text-xl text-accent" />,
-    node: () => <FaNodeJs className="text-xl text-accent" />,
-    web: () => <CiGlobe className="text-xl text-accent" />,
+    react: () => <img src="/react.png" alt="React Js" />,
+    figma: () => <img src="/figma.png" alt="Figma" />,
+    laravel: () => <img src="/apple-touch-icon.png" alt="Laravel" />,
+    tailwind: () => <img src="/tailwind.png" alt="Tailwind" />,
+    mongodb: () => <img src="/mongodb.png" alt="MongoDB" />,
+    node: () => <img src="/nodejs.png" alt="Node Js" />,
+    web: () => <CiGlobe className="text-4xl text-cyan-300" />,
 };
